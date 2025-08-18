@@ -17,6 +17,8 @@ require('./config/passport');
 
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'dist')));
+
 
 // Setup session (required for Passport)
 app.use(session({
@@ -39,7 +41,6 @@ app.use('/api/user', userRoutes);
 app.use('/api/contact', contactRoutes);
 
 
-app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));

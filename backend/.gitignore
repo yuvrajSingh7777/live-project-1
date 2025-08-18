@@ -25,11 +25,8 @@ pids
 # Uploads folder (backend profile pictures locally stored, if any)
 uploads/
 
-# Build output - React frontend
-frontend/build/
-frontend/dist/
-build/
-dist/
+
+
 
 # React local files
 *.env.local

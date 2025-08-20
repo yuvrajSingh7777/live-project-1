@@ -12,7 +12,6 @@ const path = require('path');
 dotenv.config();
 const app = express();
 
-// Initialize passport strategy
 require('./config/passport');
 
 
@@ -20,7 +19,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 
-// Setup session (required for Passport)
+
 app.use(session({
   secret: process.env.SESSION_SECRET || 'secret-session-key',
   resave: false,

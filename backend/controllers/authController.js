@@ -134,7 +134,7 @@ exports.googleAuthCallback = async (req, res) => {
 
     const encodedUser = encodeURIComponent(Buffer.from(JSON.stringify(userData)).toString('base64'));
 
-    res.redirect(`${process.env.FRONTEND_URL}/auth-success?token=${token}&user=${encodedUser}`);
+    res.redirect(`/auth-success?token=${token}&user=${encodedUser}`);
   } catch (err) {
     res.status(500).json({ message: 'Google Auth failed', error: err.message });
   }
@@ -152,7 +152,7 @@ exports.forgotPassword = async (req, res) => {
 
     await updateUser(email, { resetPasswordToken: resetToken, resetPasswordExpires });
 
-    const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
+    const resetUrl = `/reset-password/${resetToken}`;
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',

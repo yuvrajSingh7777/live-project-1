@@ -41,9 +41,10 @@ app.use('/api/contact', contactRoutes);
 
 
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
+
 
 // Error Handler Middleware
 app.use(errorHandler);
